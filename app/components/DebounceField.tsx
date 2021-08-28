@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
-import { useRouter } from "next/router";
-
 import debounce from "lodash.debounce";
+
+import styles from "styles/Users.module.scss";
 
 interface DebounceFieldProps {
   value: string;
@@ -14,7 +14,7 @@ const DebounceField = ({
 }: DebounceFieldProps): JSX.Element => {
   const [fieldValue, setFieldValue] = useState<string>(outerValue);
 
-  const debounced = useCallback(debounce(onUpdate, 500), []);
+  const debounced = useCallback(debounce(onUpdate, 300), []);
 
   const handleChange = ({
     target: { value },
@@ -25,6 +25,7 @@ const DebounceField = ({
 
   return (
     <input
+      className={styles.inputfield}
       value={fieldValue}
       onChange={handleChange}
       placeholder="Search by name..."

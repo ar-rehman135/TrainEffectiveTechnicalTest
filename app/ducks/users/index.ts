@@ -1,35 +1,34 @@
 import { AxiosError } from "axios";
-import { Movie } from "interfaces/MoviePayloads";
+import { Users } from "interfaces/UserPayloads";
 
-interface IMoviesState {
+interface IUsersState {
   list: {
-    data: Movie[];
+    data: Users[];
     isLoading: boolean;
     error: AxiosError;
   };
-  selectedMovie: Movie;
+  selectedUser: Users;
 }
 
-const initialState: IMoviesState = {
+const initialState: IUsersState = {
   list: {
     data: [],
     isLoading: false,
     error: null,
   },
-  selectedMovie: null,
+  selectedUser: null,
 };
 
 const reducer = (state = initialState, action) => {
-  console.log({action});
   const MasterMap = {
-    "USERS/GET_USERS_LIST_REQUEST": (): IMoviesState => ({
+    "USERS/GET_USERS_LIST_REQUEST": (): IUsersState => ({
       ...state,
       list: {
         ...state.list,
         isLoading: true,
       },
     }),
-    "USERS/GET_USERS_LIST_SUCCESS": (): IMoviesState => ({
+    "USERS/GET_USERS_LIST_SUCCESS": (): IUsersState => ({
       ...state,
       list: {
         ...state.list,
@@ -37,7 +36,7 @@ const reducer = (state = initialState, action) => {
         isLoading: false,
       },
     }),
-    "USERS/GET_USERS_LIST_FAILURE": (): IMoviesState => ({
+    "USERS/GET_USERS_LIST_FAILURE": (): IUsersState => ({
       ...state,
       list: {
         ...state.list,
@@ -45,7 +44,7 @@ const reducer = (state = initialState, action) => {
         isLoading: false,
       },
     }),
-    "USERS/SELECT_USERS": (): IMoviesState => ({
+    "USERS/SELECT_USERS": (): IUsersState => ({
       ...action.payload,
     }),
   };

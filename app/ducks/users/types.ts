@@ -1,4 +1,4 @@
-import { createConstants, createApiConstants } from '../../utils/constant';
+import { createApiConstants } from '../../utils/constant';
 import { SELECT_USERS } from './constants';
 
 export const NAMESPACE = 'USERS';
