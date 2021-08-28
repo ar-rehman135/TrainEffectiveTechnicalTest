@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import DebounceField from "components/DebounceField";
 import { getUserss } from "ducks/users/actions";
