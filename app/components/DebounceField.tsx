@@ -14,7 +14,7 @@ const DebounceField = ({
 }: DebounceFieldProps): JSX.Element => {
   const [fieldValue, setFieldValue] = useState<string>(outerValue);
 
-  const debounced = useCallback(debounce(onUpdate, 250), []);
+  const debounced = useCallback(debounce(onUpdate, 500), []);
 
   const handleChange = ({
     target: { value },
