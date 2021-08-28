@@ -38,13 +38,16 @@ const Users = (): JSX.Element => {
     setParams({ ...params, keyword: searchValue });
   };
   const renderedUsers = filtered.data;
-
+  const renderedError = filtered.error;
+  console.log("redmderd", renderedError);
+  
   return (
     <div className={styles.container}>
       <div className={styles.headerControls}>
         <DebounceField value={params?.keyword} onUpdate={handleSearch} />
       </div>
       <div className={styles.childrenControls}>
+        {renderedError ? <p className={styles.error}>Api Rate Limit Exceeded !</p>: ''}
         {renderedUsers.map((userItem) => (
           <a key={userItem.id} href={`${userItem.html_url}`} target='_blank'>
             <div className={styles.item}>

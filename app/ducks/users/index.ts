@@ -26,6 +26,7 @@ const reducer = (state = initialState, action) => {
       list: {
         ...state.list,
         isLoading: true,
+        error: null,
       },
     }),
     "USERS/GET_USERS_LIST_SUCCESS": (): IUsersState => ({
@@ -34,6 +35,7 @@ const reducer = (state = initialState, action) => {
         ...state.list,
         data: action?.payload?.items,
         isLoading: false,
+        error: null,
       },
     }),
     "USERS/GET_USERS_LIST_FAILURE": (): IUsersState => ({
