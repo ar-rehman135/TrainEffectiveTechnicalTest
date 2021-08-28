@@ -45,7 +45,6 @@ export const createApiAction = (
     return request(payload, finalMeta, dispatch, getState)
       .then((response: AxiosResponse) => {
         const data = response && response.data ? response.data : response;
-        console.log('actions.ts', {data})
         dispatch(successAction(data, finalMeta));
         return response;
       })

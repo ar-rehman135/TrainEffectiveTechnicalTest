@@ -1,1 +1,11 @@
-to be populated soon
+Setup
+
+```
+yarn
+```
+
+Run
+
+```
+yarn run dev
+```
